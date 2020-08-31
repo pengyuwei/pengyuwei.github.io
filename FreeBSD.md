@@ -1,4 +1,5 @@
-2020-0705
+## github.io三级域名问题
+0705
 
 碰到特别奇怪的问题，
 使用仓库名可以正常访问更新的博客：https://github.com/pengyuwei/0xff.github.io
@@ -10,3 +11,9 @@
 github.io这个域名下面的三级域名，实际完全是另外一个东西，你可以随便写一个域名，比如microsoft.github.io，但是md更新后，是不会更新到你设置的域名上去的。 
 
 目前尚不知道如何查询哪个三级域名可用，靠谱的方法是直接设置和自己的名字空间一样的名字（汗）
+
+
+## 在MacOS使用Parallels安装FreeBSD
+0829
+
+使用Current版本的iso
