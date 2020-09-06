@@ -1,9 +1,7 @@
-# 将博客搬至CSDN
-```
-将博客搬至CSDN
-```
-
 # Excel无法vlookup事件
+
+2017-07-24 18:20:00
+
 ```
 最近由于工作关系，深入的用了一阵excel，并遭遇和处理了一系列关于excel数据的问题。
 其中最有趣的一个，就是一个无法vlookup的问题。
@@ -54,6 +52,9 @@ End Sub
 ```
 
 # 如何提交代码给openstack
+
+2013-07-30 11:26:31
+
 ```
 如果想为openstack做贡献，最好的方法就是帮助社区完成blueprint或者做bugfix。代码的提交需要遵循社区的一些基本要求，以下内容是去年对openstack社区的参与过程中的一些总结。
 原文地址：http://blog.csdn.net/ffb/article/details/9625011
@@ -128,44 +129,10 @@ assign-commit-and-review |
 progit
 ```
 
-# 一个socket连接、发送、接收数据失败后是否可以重新进行连接的问题
-```
-原文：http://stackoverflow.com/questions/2237489/reusing-socket-descriptor-on-connection-failure
-当一个socket连接、发送、接收数据失败后，应该首先close这个socket，再进行重新连接。
-```
-
-# 在自己的base脚本中实现自动补全
-```
-在90年代Linux和DOS共存的年代里，Linux的Shell们有一个最微不足道但也最实用的小功能，就是命令自动补全。而DOS那个笨蛋一直到死都没学会什么叫易用。
-Linux的这个微不足道的小传统一直延续至今。虽然看似微不足道，其实也极大的提高了管理员的输入效率和准确性。
-
-如果需要在自己的脚本中实现自动补全的功能，只需要编写类似下面的一个脚本，每次用户登录后source下就可以了。
-这个示例是公司的通道机上，可以根据名称来登录相关的服务器，但是服务器名称又长又难记，每次输入都很麻烦。于是有了这个自动补全脚本：
-
-tongdaoji() 
-{
-    local cur prev opts
-    COMPREPLY=()
-    cur="${COMP_WORDS[COMP_CWORD]}"
-    prev="${COMP_WORDS[COMP_CWORD-1]}"
-    opts="java.vm swift.sa openstack.zf shanghai venusweb database"
-
-    if [[ ${cur} == * ]] ; then
-        COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
-        return 0
-    fi
-}
-
-complete -F tongdaoji e
-把这个脚本放在每次登录可以自动执行的地方，比如~/.bashrc或者/etc/bash_completion.d/。于是以后只要输入
-
-e o<TAB>
-就可以得到
-e openstack.zf
-了。
-```
-
 # ValueError: ('No requirements found', '# Horizon Core Requirements')的调试解决方法
+
+2013-06-26 16:53:22
+
 ```
 我在一台不能访问外网的CentOS6上从源码安装Openstack-horizon grizzly版本的时候，碰到了如下的错误：
 [root@xxx horizon]# python setup.py install
@@ -231,6 +198,9 @@ nolocal是python3的新特性，用于修改作用域之外的非全局变量。
 ```
 
 # 一个有关PHP随机数的坑...
+
+2013-06-06 15:41:41
+
 ```
 php中获取随机数的方法很简单，使用rand函数就可以了
 
@@ -282,6 +252,9 @@ PHP中已经有了一个mt_rand()的函数用来替换古老的rand，可以自�
 ```
 
 # Diffusion User Guide: Symbol Indexes (Article)
+
+2013-05-17 15:04:10
+
 ```
 http://www.phabricator.com/docs/phabricator/article/Diffusion_User_Guide_Symbol_Indexes.html
 Phabricator » Diffusion User Guide: Symbol Indexes (Article)
@@ -340,6 +313,9 @@ NOTE: Because this feature depends on the syntax highlighter, it will work bette
 ```
 
 # 改变MySQL的默认编码
+
+2013-05-07 17:29:00
+
 ```
 /etc/mysql/my.cnf
 [mysqld]
@@ -373,6 +349,9 @@ cmake \
 ```
 
 # php中的mysql连接字符串注意事项
+
+2013-05-07 16:32:43
+
 ```
 原帖地址：http://blog.csdn.net/ffb/article/details/8895630
 
@@ -416,6 +395,9 @@ mysqlpdo：支持
 ```
 
 # “MySQL server has gone away”的重现方法(PHP)
+
+2013-04-12 10:41:38
+
 ```
 如果想调试“MySQL server has gone away”的问题，可以这样重现：
 修改配置文件：
@@ -502,6 +484,9 @@ mysql_options(mysql->conn, MYSQL_OPT_RECONNECT, (char *)&mysql_reconnect);
 ```
 
 # php的咨询文件锁定：flock
+
+2013-04-03 16:20:12
+
 ```
 最近在研究php，碰到了一个问题，我使用如下代码锁定一个文件句柄
 
@@ -568,6 +553,9 @@ B组：
 ```
 
 # 贝尔金无线路由器由OpenWRT刷DD-WRT
+
+2011-12-24 13:00:10
+
 ```
 贝尔金的Belkin  F5D7231-4  N10117无线路由器
 配置是：4MFlash/64M内存，带USB口
@@ -596,6 +584,9 @@ Request timed out.
 ```
 
 # telnet协议解析中的难点
+
+2011-10-17 16:13:54
+
 ```
 类似下面的数据：
 telnet终端的vi模式下，用户输入了一个echo aa bb cc dd命令，然后回车执行
@@ -635,6 +626,9 @@ export PS1=提示符串即可
 ```
 
 # 一个很深的bug - 句柄被异常关闭
+
+2011-05-13 11:55:00
+
 ```
 昨天系统出现了问题，现象是日志从进入守护进程模式后就再也不出了，检查了半天也没查出问题。
 下午的代码走查会议，无意中找到了问题的原因。
@@ -645,6 +639,9 @@ export PS1=提示符串即可
 ```
 
 # zlib解压缩时对破损数据的处理
+
+2011-03-31 11:19:00
+
 ```
 zlib解压缩的时候碰到数据截断怎么办？
 最近碰到了一个问题，被zlib压缩的数据的前段数据丢失，导致后续数据无法解压缩，但经过实验，发现zlib已经提供的很强的容错能力，问题最终解决。
@@ -761,6 +758,9 @@ gcc -lz compress.c stream_test.c -g
 ```
 
 # 日志文件被追杀之谜
+
+2011-03-25 15:12:00
+
 ```
 现象描述：
 执行脚本down.sh，内容:
@@ -796,6 +796,9 @@ l-wx------    1 0        0              64 Mar 25 15:02 8 -> /v_dt/
 ```
 
 # 常用的编译环境
+
+2011-03-12 14:20:00
+
 ```
 tilda-0.09.6 in ubuntu 10.04
 sudo apt-get source tilda
@@ -812,12 +815,18 @@ sudo cp ../tilda.glade /usr/local/share/
 ```
 
 # 一个很好很先进的东西，往往被一个粗糙的用户接口毁掉
+
+2011-01-29 22:10:00
+
 ```
 父母新换了一个名牌的高档的微波炉，还不会用，让我研究一下，我这个搞IT的研究了半天，发现竟然真的搞不清怎么用。于是只能去看说明书，洋洋洒洒几十页，粗略看了一遍，又几经实验，终于。。。会热剩菜了。。。由于是数字控制，这个微波炉每次接通电源后要经历一次初始化过程，我计算了一下，首次插电初始化时间超过一分钟，之后初始化大约需要半分钟，我甚至怀疑这里面是不是装了一个Vista系统，一个微波炉，启动比我512MB内存跑XP还慢。操作菜单是中文英文数字甚至代号混合的，比如P-100代表微波强度为强，而且要按一定的顺序按按钮才能进入微波热剩菜模式，所以不看说明书是不可能会用的。（在我看来，热剩菜是微波炉唯一的用途）
 回想过去的老微波炉，我要做的所有事情就是打开炉门，放进剩菜，关上门，拧两分钟即可，多么的简洁。
 ```
 
 # 编码问题：svn无法更新
+
+2011-01-26 11:23:00
+
 ```
  
 最近的Ubuntu10.04桌面执行了自动更新之后，终端窗口的编码好像有点问题。
@@ -853,6 +862,9 @@ E5 8F 82 E8 80 83 E8 B5  84 E6 96 99
 ```
 
 # Windows两个界面设计缺陷在Linux的解决方法
+
+2010-12-03 13:41:00
+
 ```
 用Windows的时候我一直在抱怨的两个界面设计缺陷：模式窗体和抢焦点都在Linux下找到了解决方案。
  
@@ -881,6 +893,9 @@ Windows的程序好像都倾向于启动后就立刻把用户的输入焦点抢�
 ```
 
 # 利用VNC把远程图形界面显示在本地
+
+2010-11-29 16:22:00
+
 ```
 Ubuntu 10.04 IP=29.141
 sudo vi gdm.schemas
@@ -909,17 +924,26 @@ export DISPLAY=192.168.29.141:0.0
 ```
 
 # 国外原来是不能访问google music的
+
+2010-06-19 18:09:00
+
 ```
 一个在国外的朋友告诉我，在国外是不能访问google music，猜测可能是因为版权的问题，和墙无关
 ```
 
 # 比金钱更重要的东西
+
+2010-03-23 09:43:00
+
 ```
 Google让我明白了，即使是商业社会里的商业公司，也可以为了自己的信念放弃金钱。
 向Google致敬
 ```
 
 # Ubuntu装机必备
+
+2010-03-10 18:35:00
+
 ```
 安装的时候虽然选择了简体中文，但是进入桌面后依然是英文菜单，这个时候之后从系统管理的语言中把语言都设置为汉语即可。
 然后安装输入法，默认的ibus太难用，删除换scim
@@ -967,6 +991,9 @@ sudo apt-get install meld
 ```
 
 # linux下最难用的软件
+
+2010-02-02 17:38:00
+
 ```
 毫无疑问的QQ for Linux
 在我的Ubunut9.10和Fedora12上，每天都在不停的崩溃，严重的时候一句话崩溃一次（对方能收到这句话）
@@ -975,6 +1002,9 @@ sudo apt-get install meld
 ```
 
 # webpy的缺陷
+
+2010-02-02 14:59:00
+
 ```
 如下代码
 <table>
@@ -1013,6 +1043,9 @@ $for itor in lines:
 ```
 
 # redhat linux的自启动脚本
+
+2010-01-15 15:41:00
+
 ```
 /etc/rc.d/init.d下的脚本，需要a+x权限
 #!/bin/sh
@@ -1042,6 +1075,9 @@ exit 0
 ```
 
 # 拖来拖去
+
+2010-01-10 22:58:00
+
 ```
 家里终于搭建好了比较理想的完整开发环境。
 当我面对桌子上的三个屏幕的时候，十分想把一个窗口从一台显示器拖动到另外一个显示器上，
@@ -1050,6 +1086,9 @@ exit 0
 ```
 
 # C#的DLL注册为COM，VB来调用
+
+2009-08-21 11:12:00
+
 ```
 非常实用的东西！过去知道这个方法的话可以解决多少问题啊
 首先建立一个C#的DLL工程，写一个类
@@ -1085,6 +1124,9 @@ KO！成功了，这个效果相当于用VB调用C#，虽然是通过COM实现�
 ```
 
 # googld文档忽然不能访问了
+
+2009-03-11 10:26:00
+
 ```
 从周一开始google文档忽然不能访问了，我的许多常用的信息都记录在上面。但是同时我的google日历却能访问，百思不得其解，抓包就看到服务器不可用，没什么其他值得注意的内容，但是换个计算机就能访问，奇怪死了，检查了arp，正常，检查了hosts文件，正常，机器是XP补丁全＋360＋NOD32＋彩影ARP防火墙＋Windows防火墙。今天忽然想起来，ping了一下：
  
@@ -1094,6 +1136,9 @@ C:/>ping docs.google.comPinging writely.l.google.com [72.14.203.101] with 32 byt
 ```
 
 # TD告诉我The RPC server is unavailable
+
+2009-02-18 11:30:00
+
 ```
 TestDirector作为业界最差的bug系统，TD很敬业的定期出现各种各样的错误。最常见的就是不支持你的浏览器、IE死掉或者提示The RPC server is unavailable。
  
@@ -1114,6 +1159,9 @@ TD好用，在于它把需求，测试和bug管理结合了起来，但从纯软
 ```
 
 # bug是怎样炼成的
+
+2008-10-24 10:44:00
+
 ```
  我很遗憾，做软件做了这么多年，思想还是停留在代码层次上，从来没有去提高自己。
 近期的代码维护工作中碰到的问题，记录。
@@ -1133,6 +1181,9 @@ long   lFeedbacktype_id;
 ```
 
 # [RDP]A glyph is a bitmap representation of a character
+
+2008-08-08 18:25:00
+
 ```
 关于RDP中的文本是如何取出的,一直不得其要领,在MSDN上看到的一句有关的话RDP text is displayed by using glyph caching. Almost immediately, the
 client builds up the required set of glyphs, and the server needs only
@@ -1149,21 +1200,33 @@ Instead, it tells the client to reuse a cached glyph or fragment.字符串实际
 ```
 
 # [Snort]加了rule文件之后得到Unknown rule type: portvar错误
+
+2008-07-30 12:03:00
+
 ```
 加了一些从网上下载的最新rules，并修改了对应的配置，结果报错：[root@localhost snort]# snort -A full -s -c /etc/snort/etc/snort.conf -i eth0 Running in IDS mode        --== Initializing Snort ==--Initializing Output Plugins!Var 'any_ADDRESS' defined, value len = 15 chars, value = 0.0.0.0/0.0.0.0Var 'lo_ADDRESS' defined, value len = 19 chars, value = 127.0.0.0/255.0.0.0Initializing Preprocessors!Initializing Plug-ins!Parsing Rules file /etc/snort/etc/snort.conf+++++++++++++++++++++++++++++++++++++++++++++++++++Initializing rule chains...Var 'HOME_NET' defined, value len = 3 chars, value = anyVar 'EXTERNAL_NET' defined, value len = 3 chars, value = anyVar 'DNS_SERVERS' defined, value len = 3 chars, value = anyVar 'SMTP_SERVERS' defined, value len = 3 chars, value = anyVar 'HTTP_SERVERS' defined, value len = 3 chars, value = anyVar 'SQL_SERVERS' defined, value len = 3 chars, value = anyVar 'TELNET_SERVERS' defined, value len = 3 chars, value = anyVar 'SNMP_SERVERS' defined, value len = 3 chars, value = anyVar 'FTP_SERVERS' defined, value len = 3 chars, value = anyVar 'SSH_SERVERS' defined, value len = 3 chars, value = anyVar 'POP_SERVERS' defined, value len = 3 chars, value = anyVar 'IMAP_SERVERS' defined, value len = 3 chars, value = anyVar 'RPC_SERVERS' defined, value len = 3 chars, value = anyVar 'WWW_SERVERS' defined, value len = 3 chars, value = anyVar 'AIM_SERVERS' defined, value len = 185 chars   [64.12.24.0/23,64.12.28.0/23,64.12.161.0/24,64.12.163.0/24,64.12.200.0/24,205.188.3.0/24,205.188.5.0/24,205.188.7.0/24,205.188.9   .0/24,205.188.153.0/24,205.188.179.0/24,205.188.248.0/24]ERROR: /etc/snort/etc/snort.conf(123) => Unknown rule type: portvarFatal Error, Quitting..网上查询说是路径设置的问题。我的路径设置如下：var RULE_PATH /etc/snort/rules之前是./rules，两种情况都是出上面的错误。
 ```
 
 # 两个极端可以得到同样的效果
+
+2008-07-10 14:15:00
+
 ```
 从集团查询的SQL语句我们可以看出，两个极端可以得到同样的效果
 ```
 
 # 一个SQL
+
+2008-07-09 14:52:00
+
 ```
 项目中的一段SQL其实，这个项目中充满了超长的SQL，最长的一个竟然在代码中写了二百多行SELECT  * FROM (SELECT * FROM APPEAL,REGION,HANDLESTATE,FEEDBACKTYPE WHERE APPEAL.APPEAL_REGION_ID =REGION.REGION_ID(+) AND APPEAL.APPEAL_HANDLESTATE_ID = HANDLESTATE.HANDLESTATE_ID(+) AND APPEAL.APPEAL_FEEDBACKTYPE_ID = FEEDBACKTYPE.FEEDBACKTYPE_ID(+) AND APPEAL_ID IN (SELECT DISTINCT APPEAL_ID FROM APPEALTOORIGIN WHERE APPEAL_ORIGIN_ID IN (SELECT APPEAL_ORIGIN_ID FROM APPEAL_ORIGIN WHERE 1 = 1 AND APPEAL_SOURCE_ID=2 AND APPEAL_EMAIL LIKE '%rebound@ns.net%' )) AND  1 = 1 AND APPEAL_HANDLESTATE_ID=1 AND 1=1 AND APPEAL_LASTTIME>=1214841600 AND  APPEAL_LASTTIME<=1217519999 ) WHERE (ROWID IN (SELECT rid FROM (SELECT rownum rno, rid FROM (SELECT rowid rid FROM (SELECT * FROM APPEAL,REGION,HANDLESTATE,FEEDBACKTYPE WHERE APPEAL.APPEAL_REGION_ID =REGION.REGION_ID(+) AND APPEAL.APPEAL_HANDLESTATE_ID = HANDLESTATE.HANDLESTATE_ID(+) AND APPEAL.APPEAL_FEEDBACKTYPE_ID = FEEDBACKTYPE.FEEDBACKTYPE_ID(+) AND APPEAL_ID IN (SELECT DISTINCT APPEAL_ID FROM APPEALTOORIGIN WHERE APPEAL_ORIGIN_ID IN (SELECT APPEAL_ORIGIN_ID FROM APPEAL_ORIGIN WHERE 1 = 1 AND APPEAL_SOURCE_ID=2 AND APPEAL_EMAIL LIKE '%rebound@ns.net%' )) AND  1 = 1 AND APPEAL_HANDLESTATE_ID=1 AND 1=1 AND APPEAL_LASTTIME>=1214841600 AND  APPEAL_LASTTIME<=1217519999 ) ORDER BY APPEAL_COUNT DESC) WHERE rownum <= 100) WHERE rno >= 1)) ORDER BY APPEAL_COUNT DESC我想知道的是，这样的SQL这个人是怎么写出来的？
 ```
 
 # 一段代码
+
+2008-07-08 10:45:00
+
 ```
 项目中的一段代码，不知道是谁写的：
 
@@ -1206,6 +1269,9 @@ DataBaseUtil.executeUpdate(sql, param)
 ```
 
 # 暂时放弃VC2008
+
+2008-06-30 11:06:00
+
 ```
 对2008忍无可忍，决定暂时放弃它，回到VC6＋VC2003的时代。
 
@@ -1220,11 +1286,17 @@ DataBaseUtil.executeUpdate(sql, param)
 ```
 
 # 如何不用额外的变量交换两个变量的值
+
+2008-06-25 18:32:00
+
 ```
 同事买了本《编程之美》，然后就给我出的一个算法题，非常的有意思。已知：a=xb=y问：如何不用额外的变量交换a和b的值？答案是：a=a+bb=a-ba=a-b太有意思了！
 ```
 
 # STL迭代器：循环中删除
+
+2008-06-16 16:16:00
+
 ```
 直接删除肯定不行，不然我的程序也不会崩溃了。
 首先尝试了下面的方法，很笨
@@ -1282,6 +1354,9 @@ for (itor=m_Funcs.begin();itor!=m_Funcs.end();)
 ```
 
 # 写文件速度测试
+
+2008-05-27 16:33:00
+
 ```
 测试了不同方法写文件的时间，测试环境是IBM T42：代码一：
     char *data=new char[1024*1024];    int t0 = GetTickCount();    FILE *pFile = NULL;        pFile = fopen("D:/test1MB_C.dat", "a+");    fwrite(data, 1024*1024,1,pFile);    fclose(pFile);    int t1 = GetTickCount();    delete[] data;    data = NULL;    char szText[32];    sprintf(szText, "use %d second(%d 毫秒).", (t1-t0)/1000, t1-t0 );    this->SetWindowText(szText);
@@ -1293,6 +1368,9 @@ for (itor=m_Funcs.begin();itor!=m_Funcs.end();)
 ```
 
 # C++的Format
+
+2008-05-21 17:01:00
+
 ```
 他们管这个叫C++的format，其实这种方法也比较诡异
 std::ostringstream strSQLS;strSQLS << "WHERE FRAMEIP = "            <<szIp            <<" and LOGINTIME<="            <<time1            <<" AND LOGOUTTIME>="            <<time1            ;
@@ -1301,6 +1379,9 @@ std::ostringstream strSQLS;strSQLS << "WHERE FRAMEIP = "         
 ```
 
 # 是STL的错误吗？（续）
+
+2008-05-21 15:12:00
+
 ```
 特定情况下，以下的写法导致最后一个单引号没加上(display为std::string对象)：写法1：
 string strSQL;strSQL = "WHERE APPEAL_DISPLAY='";strSQL.append(display);strSQL.append(" ' "); 
@@ -1333,31 +1414,49 @@ seclen为7，内存情况如下：
 ```
 
 # [OCI] OCI基础学习笔记：Select的方法
+
+2008-05-13 18:53:00
+
 ```
 #include   <oci.h>       OCIEnv   *m_pOCIEnv;       OCIError   *m_pOCIError;       OCISvcCtx   *m_pOCISvcCtx;       OCIStmt   *m_Insertp;       OCIStmt   *m_pOCIStmtSelectR;       OCIBind   *m_Bndhp;    登录：     char   szUserID[STRING_LEN];       char   szPassWord[STRING_LEN];       char   szServerName[STRING_LEN];        (void) OCIEnvCreate(&m_pOCIEnv, OCI_THREADED, (dvoid *)0,                                 0, 0, 0, (size_t) 0, (dvoid **)0);      OCIHandleAlloc((dvoid   *)m_pOCIEnv,   (dvoid   **)&m_pOCIError,   OCI_HTYPE_ERROR,   (size_t)0,   (dvoid   **)0);        strcpy(szServerName,   "Ora_servername");       strcpy(szUserID,   "username");       strcpy(szPassWord,   "password");        ProcessError(m_pOCIError,           nRetCode = OCILogon(m_pOCIEnv,   m_pOCIError,   &m_pOCISvcCtx,           (unsigned   char   *)szUserID,   strlen(szUserID),           (unsigned   char   *)szPassWord   ,   strlen(szPassWord),           (unsigned   char   *)szServerName,   strlen(szServerName)           ));       if (nRetCode != OCI_SUCCESS)     {         return -1;     }  一个Select查询的初始化：     const   char   *pszSelectSql  = NULL;      pszSelectSql   =   "select OBJECT from ORIGIN WHERE HANDLE_FLAG=0 AND  rownum<5";          OCIHandleAlloc((dvoid   *)m_pOCIEnv,   (dvoid   **)&m_pOCIStmtSelectR,   OCI_HTYPE_STMT,   (size_t)0,   (dvoid   **)0);        OCIStmtPrepare(m_pOCIStmtSelectR,   m_pOCIError,   (text   *)pszSelectSql,   (ub4)strlen(pszSelectSql),                 (ub4)OCI_NTV_SYNTAX,   (ub4)OCI_DEFAULT)  ;                  OCIDefine *m_pOCIDefSelect = NULL;        ProcessError(m_pOCIError, OCIDefineByPos(m_pOCIStmtSelectR, &m_pOCIDefSelect, m_pOCIError, 1, (dvoid *) &lObject,                  (sword) sizeof(double), SQLT_FLT, (dvoid *) 0, (ub2 *)0,                  (ub2 *)0, OCI_DEFAULT));  执行查询并取得记录集：     OCIStmtExecute(m_pOCISvcCtx,   m_pOCIStmtSelectR,   m_pOCIError,   (ub4)1,   (ub4)0,                      (CONST   OCISnapshot   *)NULL,   (OCISnapshot   *)NULL,   OCI_DEFAULT);      while(errno==OCI_SUCCESS_WITH_INFO || errno==OCI_SUCCESS)     {         printf("ip=%f,%s/r/n", lObject, "");         errno = OCIStmtFetch ( m_pOCIStmtSelectR, m_pOCIError, 1, OCI_FETCH_NEXT, OCI_DEFAULT);     }  原理是首先初始化OCI环境，分配表达式句柄，然后用OCIDefineByPos绑定变量，第四个参数是从1开始的查询结果对应的字段序号，最后用OCIStmtExecute执行查询，并调用OCIStmtFetch遍历结果集，没有结果会得到OCI_NO_DATA
 ```
 
 # VC90的exe换了环境不能运行
+
+2008-03-06 14:07:00
+
 ```
 VC90编译的exe本机正常，连同mfc90.dll、msvcr90.dll、msvcp90.dll一起拷贝到另外机器上，执行出现This application has failed to start because the application configuration is incorrect. Reinstalling the application may fix the problem 错误提示。使用depends查看，不缺少DLL。改用静态链接MFC可解决此问题，但是问题产生的原因未知。
 ```
 
 # 64位时代来临了，升级到VC2008一定要多加小心！
+
+2008-03-05 16:39:00
+
 ```
 今天碰到如下代码出现逻辑错误：for(int nNo=1;nNo<=8;nNo++){    char szSQL[256]={0};    time_t mstime;     time(&mstime);    sprintf(szSQL, "update status set status='%s', mstime=%d where id=%d",strStatus[nNo].c_str(), mstime , nNo);    pConn->Execute(szSQL);}每次执行，条件都是where id=0，百思不得其解，查看MSDN，发现原来time_t和time的内部实现已经变化，需要改变代码为：__time32_t mstime; _time32(&mstime);sprintf(szSQL, "mstime=%d... "..,mstime, nNo);或者需要定义这个宏：_USE_32BIT_TIME_T 才可以，这个宏要写到项目属性里，或者stdafx的第一行，不然会出现：.../VC/INCLUDE/sys/stat.inl(44) : error C2466: cannot allocate an array of constant size 0错误。time_t和time的默认已经变为64位实现了。这个会导致升级到2008的VC代码产生很大的隐患，因为编译不会出错，但是执行结果却逻辑错误。看来升级到 VC2008的一定要注意，不然真的很危险。MSDN:time_t (__int64 or long integer) Represents time values in mktime, time, ctime, _ctime32, _ctime64, _wctime, _wctime32, _wctime64, ctime_s, _ctime32_s, _ctime64_s, _wctime_s, _wctime32_s, _wctime64_s, ctime, _ctime32, _ctime64, _wctime, _wctime32, _wctime64 and gmtime, _gmtime32, _gmtime64. If _USE_32BIT_TIME_T is defined, time_t is a long integer. If not defined, it is a 64-bit integer.
 ```
 
 # 升级到VC 2008之后变体类型问题
+
+2008-02-28 10:46:00
+
 ```
 从VC6或者VC2003(VC7.1)升级到VC2008（VC9.0）之后，很多的程序不能编译了，很多能编译的运行的不对了。比如:过去的ADO数据库访问一切正常，到了2008里虽然可以编译，但是取出的整数值都是0，跟踪发现，代码中的一段:    _variant_t aa = GetValueByField(strFName);        if( aa.vt == VT_NULL )        return 0;        return aa.intVal;aa的值正确，但是aa.intVal的值是0，咨询同事后得知这里应该写为        return int(aa); 修改后在2008也正常了。可能变体类型的定义在2008里发生了变化，所以过去那种比较猛的直接访问数据成员的方法失效了。还比如一个COM组件的调用程序，过去一直正常，2008里不能编译了，出错在[ module(DLL, name="Fst", uuid="{2726C85B-BF30-4b4b-8529-289D3E05CE4B}") ];修改为[ module(type=dll, name="DllFst", uuid="{2726C85B-BF30-4b4b-8529-289D3E05CE4B}") ];即可编译通过，这里是因为2008里的写法要求更严格了。还有类似的错误：__hook(&IFstEvents::OnRegChange, pSource, OnRegChange);需要修改为：__hook(&IFstEvents::OnRegChange, pSource, &CMsg::OnRegChange);类成员函数需要加上类名和取地址符（是编译器告诉我要这样写的）。还好，多数程序最终还是通过了编译，希望他们也能正确的运行。
 ```
 
 # 是STL的错误吗？
+
+2008-02-26 18:59:00
+
 ```
 碰到很奇怪的问题string::size_type nlen = str.size();   // 得到1108str.erase(pos, 3);这句出错，跟踪进去，是_Split();里面得到了错误的_Len导致的。assign(_Temp);里面的_Tr::length(_S)得到了一个788，而之前调用str.size()得到的是1108，这就导致后面_Tr::move(_Ptr + _P0, _Ptr + _P0 + _M,                _Len - _P0 - _M)的时候_Len - _P0 - _M的值已经为负数，经过仔细研究，发现这个字符串是一个包含/0的长字符串（其值是由DTL库从Oracle数据库中取出），1108是它真正的长度，788正好是/0所在的位置，就是说，对于这种数据，不能用string类来处理。但是，随后我又写了一个试验程序：     string str = "测试/0;/r/nA;/r/n中文中文;/r/n<E>/r/n";     string::size_type srclen=str.size();srclen得到4这又说明size()方法是能处理/0的。又是一个百思不得其解。原始串如下：00E79C61  52 65 63 65 69 76 65 64 3A 20 66 72 6F 6D  Received: from00E79C6F  20 31 32 36 2E 63 6F 6D 20 28 5B 31 32 35   126.com ([12500E79C7D  2E 39 31 2E 31 34 31 2E 32 31 36 5D 29 0D  .91.141.216]).00E79C8B  0A 09 62 79 20 6E 61 6E 6F 70 72 6F 62 65  .    by nanoprobe00E79C99  73 2E 63 6F 6D 20 28 38 2E 31 33 2E 31 2F  s.com (8.13.1/00E79CA7  38 2E 31 33 2E 31 29 20 77 69 74 68 20 45  8.13.1) with E00E79CB5  53 4D 54 50 20 69 64 20 6D 30 44 36 78 48  SMTP id m0D6xH00E79CC3  50 76 30 30 38 38 36 37 0D 0A 09 66 6F 72  Pv008867..    for00E79CD1  20 3C 78 3E 3B 20 53 75 6E 2C 20 31 33 20   <x>; Sun, 13 00E79CDF  4A 61 6E 20 32 30 30 38 20 30 31 3A 35 39  Jan 2008 01:5900E79CED  3A 32 32 20 2D 30 35 30 30 0D 0A 4D 65 73  :22 -0500..Mes00E79CFB  73 61 67 65 2D 49 64 3A 20 3C 32 30 30 38  sage-Id: <200800E79D09  5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F  ______________00E79D17  5F 5F 5F 5F 5F 38 38 36 37 40 6E 61 6E 6F  _____8867@nano00E79D25  70 72 6F 62 65 73 2E 63 6F 6D 3E 0D 0A 58  probes.com>..X00E79D33  2D 4F 72 69 67 3A 20 5B 31 32 35 2E 39 31  -Orig: [125.9100E79D41  2E 31 34 31 2E 32 31 36 5D 0D 0A 58 2D 41  .141.216]..X-A00E79D4F  75 74 68 65 6E 74 69 63 61 74 69 6F 6E 2D  uthentication-00E79D5D  57 61 72 6E 69 6E 67 3A 20 6E 61 6E 6F 70  Warning: nanop00E79D6B  72 6F 62 65 73 2E 63 6F 6D 3A 20 6E 61 6E  robes.com: nan00E79D79  6F 70 72 6F 62 20 6F 77 6E 65 64 20 70 72  oprob owned pr00E79D87  6F 63 65 73 73 20 64 6F 69 6E 67 20 2D 62  ocess doing -b00E79D95  73 0D 0A 46 72 6F 6D 3A 20 3D 3F 47 42 32  s..From: =?GB200E79DA3  33 31 32 3F 42 3F 77 4F 37 50 79 4D 6E 36  312?B?wO7PyMn600E79DB1  3F 3D 20 3C 6C 62 67 5F 35 32 30 40 31 32  ?= <lbg_520@1200E79DBF  36 2E 63 6F 6D 3E 0D 0A 53 75 62 6A 65 63  6.com>..Subjec00E79DCD  74 3A 20 3D 3F 47 42 32 33 31 32 3F 42 3F  t: =?GB2312?B?00E79DDB  79 63 2B 36 6F 37 76 6A 77 66 71 37 34 62  yc+6o7vjwfq74b00E79DE9  7A 47 79 73 4C 4F 38 63 76 35 3F 3D 0D 0A  zGysLO8cv5?=..00E79DF7  54 6F 3A 20 78 0D 0A 43 6F 6E 74 65 6E 74  To: x..Content00E79E05  2D 54 79 70 65 3A 20 74 65 78 74 2F 70 6C  -Type: text/pl00E79E13  61 69 6E 3B 63 68 61 72 73 65 74 3D 22 47  ain;charset="G00E79E21  42 32 33 31 32 22 0D 0A 52 65 70 6C 79 2D  B2312"..Reply-00E79E2F  54 6F 3A 20 6C 62 67 5F 35 32 30 40 31 32  To: lbg_520@1200E79E3D  36 2E 63 6F 6D 0D 0A 44 61 74 65 3A 20 53  6.com..Date: S00E79E4B  75 6E 2C 20 31 33 20 4A 61 6E 20 32 30 30  un, 13 Jan 20000E79E59  38 20 31 35 3A 30 33 3A 35 39 20 2B 30 38  8 15:03:59 +0800E79E67  30 30 0D 0A 58 2D 50 72 69 6F 72 69 74 79  00..X-Priority00E79E75  3A 20 33 0D 0A 58 2D 4D 61 69 6C 65 72 3A  : 3..X-Mailer:00E79E83  20 46 6F 78 4D 61 69 6C 20 34 2E 30 20 62   FoxMail 4.0 b00E79E91  65 74 61 20 32 20 5B 63 6E 5D 0D 0A 58 2D  eta 2 [cn]..X-00E79E9F  53 70 61 6D 43 6F 70 2D 43 68 65 63 6B 65  SpamCop-Checke00E79EAD  64 3A 20 36 36 2E 38 34 2E 32 32 2E 31 32  d: 66.84.22.1200E79EBB  36 20 31 32 35 2E 39 31 2E 31 34 31 2E 32  6 125.91.141.200E79EC9  31 36 20 0D 0A 0D 0A 0D 0A 20 20 20 20 20  16 ......     00E79ED7  20 20 20 20 20 20 20 20 20 20 20 20 20 20                00E79EE5  B4 FA 20 B0 EC 20 B7 A2 20 C6 B1 28 31 33  代 办 发 票(1300E79EF3  39 32 36 35 31 35 33 32 33 29 0D 0A 20 20  926515323)..  00E79F01  20 D3 C9 CE D2 CB F9 B4 FA B0 EC B8 F7 C0   由我所代办各.00E79F0F  E0 B7 A2 C6 B1 BF C9 CF ED CA DC B4 F3 B7  喾⑵笨上硎艽蠓00E79F1D  F9 B5 CD CB B0 3B 20 20 0D 0A 20 20 20 B4  退.;  ..   .00E79F2B  FA B0 EC B8 F7 B5 D8 B7 FE CE F1 C0 E0 28  旄鞯胤窭.(00E79F39  D7 C9 D1 AF B7 D1 2C D7 A1 CB DE B7 D1 2C  咨询费,住宿费,00E79F47  BB E1 CE F1 B7 D1 2C B9 E3 B8 E6 B7 D1 2C  会务费,广告费,00E79F55  B7 BF D7 E2 0D 0A B7 D1 29 A3 BB B9 A4 B3  房租..费)；工.00E79F63  CC C0 E0 28 D7 B0 E4 EA B7 D1 2C C0 CD CE  汤.(装潢费,劳.00E79F71  F1 B7 D1 2C 00 00 00 BD A8 D6 FE B0 B2 D7  穹.,...建筑安.00E79F7F  B0 29 BC B0 C9 CC C6 B7 A1 A2 C9 CC D2 B5  .)及商品、商业00E79F8D  A1 A2 B9 A4 0D 0A D2 B5 CF FA CA DB C0 E0  、工..业销售类00E79F9B  B5 C8 B7 A2 C6 B1 B0 B4 31 2E 35 25 CA D5  等发票按1.5%收00E79FA9  B7 D1 A3 AC CD AC CA B1 D3 D0 C8 AB B9 FA  费，同时有全国00E79FB7  B8 F7 B4 F3 B3 C7 CA D0 B9 AB CB BE B4 FA  各大城市公司代00E79FC5  0D 0A C0 ED B5 C4 C6 B1 BE DD 3B 0D 0A D4  ..理的票据;...00E79FD3  F6 D6 B5 CB B0 B0 B4 36 25 B4 FA BF AA 3B  鲋邓鞍.6%代开;00E79FE1  0D 0A 20 20 20 D0 C5 D3 FE B3 D0 C5 B5 3A  ..   信誉承诺:00E79FEF  CF C8 CE DE CC F5 BC FE BD BB BB F5 B8 F8  先无条件交货给00E79FFD  B9 F3 CB BE C8 B7 C8 CF BA F3 D4 D9 B8 B6  贵司确认后再付00E7A00B  BF EE 21 28 C4 FA CE DE D0 E8 0D 0A B3 D0  款!(您无需..承00E7A019  B5 A3 C8 CE BA CE BE AD BC C3 C9 CF B5 C4  担任何经济上的00E7A027  B7 E7 CF D5 29 0D 0A C1 AA 20 CF B5 20 C8  风险)..联 系 .00E7A035  CB 3A 20 C0 EE CF C8 C9 FA 20 20 20 20 20  .: 李先生     00E7A043  20 20 20 20 20 20 20 20 20 20 20 20 20 20                00E7A051  20 20 20 30 32 31 2D 33 31 32 36 32 33 33     021-312623300E7A05F  39 20 20 0D 0A CA D6 20 20 20 20 BB FA 3A  9  ..手    机:00E7A06D  20 31 33 39 32 36 35 31 35 33 32 33 0D 0A   13926515323..00E7A07B  0D 0A 20 20 20 20 20 20 20 20 20 20 20 20  ..            00E7A089  20 20 20 20 20 20 20 20 20 20 20 20 20 20                00E7A097  20 20 20 20 20 20 C9 CF BA A3 BB E3 C1 FA        上海汇龙00E7A0A5  BB E1 BC C6 CA C2 CE F1 CB F9 0D 0A 0D 0A  会计事务所....00E7A0B3  0D 0A 00 CD CD CD CD CD CD CD CD CD CD CD  ...屯屯屯屯屯.00E7A0C1  FD FD FD FD F0 AD BA 0D F0 AD BA 0D F0 AD  瓠..瓠..瓠00E7A0CF  BA AB AB AB AB AB AB AB AB 00 00 00 00 00  韩......00E7A0DD  00 00 00 0A 00 95 00 EE 04 EE 00 90 5D E7  ...........怾.
 ```
 
 # 错误地正确运行着
+
+2008-02-26 15:42:00
+
 ```
 维护的代码中的一段，目的是删除字符串中分号后的回车符（删除“分号回车换行”的组合），之前一直正确的运行，这次出了问题，跟踪到这里：
 string::size_type pos=0;       while( (pos=str.find("; / r / n", pos)) != string::npos)...{    str.erase(pos, 3);    pos += 3;} 
@@ -1366,11 +1465,17 @@ string::size_type pos=0;       while( (pos=str.find("; / r / n", pos))
 ```
 
 # 关于DTL库不能SELECT本地Oracle表的问题
+
+2008-02-26 14:56:00
+
 ```
 过去一直正常的代码，春节后忽然报告错误，连一个普通的Select操作都不能进行：Exception type: DBExceptionMethod: DBStmt::Fetch()Error Message: Unable to fetch statment "SELECT CONFIG_COUNT_MAX, CONFIG_SYSTEM_INFO FROM SYSCONFIG"SQL Errors:(0) SQL Error! SQLSTATE = 07006 Native err = 0 msg = [Oracle][ODBC]Restricted data type attribute violation. 还有的时候错误信息是Numberic value out of range.百思不得其解，春节前还好好的，代码没有变过，怎么忽然就不能运行了呢？首先考虑是不是防火墙的问题，关闭了防火墙试验不行，然后换了一台机器试验，也不行；然后试验更换Oracle客户端的版本，春节前是用的9i，现在用的是10g，卸载了10g重新装9i，却还是不行；然后考虑是不是操作系统的变化造成的，过去是Win2000，春节后重新装了WinXP，于是在虚拟机里重新安装了一个Win2000Server、重新安装VC6＋SP6试验，还是不行；对比两个数据库服务器的表结构，没有区别，数据内容虽然不同，但是似乎也没有异常的数据内容；尝试用ADO写了一个访问程序，结果运行通过，可以访问此数据库并且取出数据，莫非是DTL库出问题了？然后尝试本地又搭建了一个Oracle数据库服务器，导入数据，然后发现程序访问这个数据库还是出一样的错误。然后尝试连接远程的一个同样的Oracle数据库，结果竟然成功了，于是尝试重启本地Oracle服务，无效；重启本地Oracle服务器，无效；尝试导入远程数据到本地，程序不出错了。然后导回本地的错误数据，开始逐一将字段值设置为0试验是哪个字段出了问题，最后发现其中一个字段设置为0之后（之前的值是负数 -1），程序可以正确运行了。查看本地C代码中对应的部分，DTL类中的定义是unsigned long，而数据库中该字段的定义是Numberic，一般来说，C中对unsigned long 赋负数值是不会出错的（虽然逻辑上可能不是你需要的结果），看来DTL库的内容对此有某种处理在，如果赋值和定义不符，则代码抛出异常（First-chance exception in App.exe (KERNEL32.DLL): 0xEBAD562F: (no name).），由于本地程序的定义是从逻辑角度定义的，某些逻辑上不可能为负数的都被定义为unsigned long，而数据库中则统一都是Numberic类型的，这是一种不统一的情况，考虑如果修改代码工作量非常巨大，所以暂时不准备解决此问题，而由前台程序负责保证数据库不要出现异常值（负数）。整个除错过程历时三天多，眩晕～
 ```
 
 # Linux主机加入WindowsAD域
+
+2007-12-02 15:06:00
+
 ```
 我什么都不懂，以下总结都是根据网上文章和咨询网友自己试验出来的，写的不对欢迎指教 。
 AD活动目录：Windows2003 Server计算机名：c.tech.comIP：192.168.100.150
@@ -1383,6 +1488,9 @@ vim /etc/network/interface
 ```
 
 # pexpect学习（一）
+
+2007-11-28 17:25:00
+
 ```
 pexpect官方网站 http://pexpect.sourceforge.net/  
 pexpect是一个可以模拟终端用户与系统的交互的Python库。
@@ -1396,6 +1504,9 @@ child.sendline('exit') print 'end.'
 ```
 
 # Python调用C的DLL和VC调用有什么区别？
+
+2007-11-21 18:50:00
+
 ```
  
  之前我被这个问题搞晕了，一个C的DLL，VC写了测试程序调用完全没问题，但是Python调用就失败，百思不得其解，DLL开发者也说别人调用都是好的，肯定是你调用的问题，我查啊查的也没有结果，后来有一天，终于无意中发现，我的VC测试程序中，习惯性的第一行写着
@@ -1407,6 +1518,9 @@ CoInitialize(NULL) ;
 ```
 
 # Python调用C的DLL
+
+2007-09-26 11:36:00
+
 ```
 最近研究这个，准备在新部门里大用Python了
 首先用VC建立一个试验用的DLL。
@@ -1449,6 +1563,9 @@ szPara = create_string_buffer('/0' * 64)print cdll.tjDll.TestCharRef(byref(szPar
 ```
 
 # web.py如何取得提交表单的内容
+
+2007-09-21 15:02:00
+
 ```
  如何取得提交表单的内容？
 如果提交的页面是类似下面
@@ -1478,6 +1595,9 @@ http://groups.google.com/group/webpy/web/faqchinese
 ```
 
 # [备忘录] JNI：Java和C++的互相调用
+
+2007-08-21 16:46:00
+
 ```
 Java-->C++方向：
 首先，用native声明接口，这个接口是留给C++来实现的package com.hoker;public class IVCDll {    static    {        System.load( "IVCDll.so" );    }    public static native int initDll();}方法的名称和DLL导出函数的名称无关，可以随意写，加载的so文件是这个中间层接口生成的，而不是你实际要调用的DLL文件先用javac编译所有的java文件，然后按照package中指定的路径把class文件拷贝过去javac *.java mv -f *.class ./com/hoker/还可能要设置一下库的路径：export LD_LIBRARY_PATH=./然后用javah命令（在bin目录下执行） 
@@ -1495,12 +1615,18 @@ GetStaticMethodID的最后一个参数是方法的签名，不知道怎么写的
 ```
 
 # 代码错位问题，注意QQ那个家伙
+
+2007-06-23 19:16:00
+
 ```
 用VC7.1(VisualStudio.Net 2003)写程序的注意了，如果代码是从QQ窗口里粘贴过来的，有可能导致断点调试的时候代码错误，而且怎么重新编译也不行，而且从代码编辑窗口里看不出任何问题，想解决很难。今天终于有了发现，如果代码是从QQ窗口粘贴过来的，就会这样，解决方法是记住哪里是粘贴的，全部剪切掉，粘贴到记事本里再全选复制粘贴回VC就好了。
 后来经过试验，发现是QQ粘贴过来代码的每行结尾不是0D0A，而是0D0909，VS里不能显示这个字符，（也不会显示出乱码，所以我们也没法发现），并导致了以上的问题。 
 ```
 
 # 数个cidaemon.exe占用100%CPU
+
+2007-06-18 11:22:00
+
 ```
 今日进程里忽然有数个cidaemon.exe占用大量CPU，每次都使用killex才能将其杀掉，今天google了一下，发现这个进程其实是Windows的索引服务，在
 控制面板-管理工具-服务
@@ -1509,6 +1635,9 @@ GetStaticMethodID的最后一个参数是方法的签名，不知道怎么写的
 ```
 
 # emule源代码研究
+
+2007-06-17 18:13:00
+
 ```
 刚看了一点。eMule-VeryCD-src-070418
 资源IDD_STATISTICS 是那个双击状态栏出来的图表界面（图表做的不错哦，希望是个易用的东西）
@@ -1523,6 +1652,9 @@ void CStatisticsDlg::RepaintMeters() ...{    CString Buffer;    m_Dow
 ```
 
 # 试用log4cxx
+
+2007-06-08 13:03:00
+
 ```
 很不稳定不知道为什么，经常什么日志都写不出来，今天又出现三个异常：
 testlog.exe 中的 0x77e8bc81 处最可能的异常: 0x80004002: 不支持此接口 。testlog.exe 中的 0x77e8bc81 处最可能的异常: 0x80004002: 不支持此接口 。
@@ -1544,11 +1676,17 @@ log4cxx::xml::DOMConfigurator::configure(cfgFile.c_str());...LoggerPtr logger 
 ```
 
 # CVS小技巧:忽略不需要的文件
+
+2007-06-08 13:01:00
+
 ```
 小技巧：右键某个CVS文件夹，CVS-首选项-忽略文件，输入*.opt *.ncb *.suo *.plg *.pch *.idb *.pdb *.scc *.obj Debug Release *.o *.bin *.out *.ilk *.aps debug release *.clw *.bak确定，这样以后添加所有内容的时候就会自动排除这些文件，再也不用自己手动去勾掉这些文件了，省事不少。 
 ```
 
 # C#的DLL注册为COM，VB来调用
+
+2007-06-08 13:00:00
+
 ```
 非常实用的东西！过去知道这个方法的话可以解决多少问题啊
 首先建立一个C#的DLL工程，写一个类
@@ -1573,6 +1711,9 @@ set o = createobject("Test.MyTest")msgbox o.Fun()
 ```
 
 # cvs 文件头
+
+2007-06-08 12:58:00
+
 ```
 在文件头加上如下这行即可
 
@@ -1584,6 +1725,9 @@ set o = createobject("Test.MyTest")msgbox o.Fun()
 ```
 
 # 批处理一二三
+
+2007-06-08 12:57:00
+
 ```
 用net命令自动登录：
 net use //1.2.3.4/share password /user:administrator
@@ -1599,6 +1743,9 @@ start /w sleep.vbs 10 
 ```
 
 # VS2003命令行编译
+
+2007-06-08 12:56:00
+
 ```
 前提是这些东西得在Path下:
 
@@ -1626,6 +1773,9 @@ devenv "X:productsrc est estg.sln" /upgrade
 ```
 
 # [Python]编码问题
+
+2007-06-08 12:54:00
+
 ```
 m_result.append(objProj.m_name + ":编译成功")
 
@@ -1648,12 +1798,18 @@ Traceback (most recent call last):  File "<interactive input>", line 1, in ?Un
 ```
 
 # [NSIS]如何在结束页禁用取消按钮
+
+2007-06-08 12:50:00
+
 ```
 [NSIS]问题
 看似简单，查了半天资料最后发现竟然得写一个回调函数实现，恐怖声明回调函数!define MUI_PAGE_CUSTOMFUNCTION_PRE "OnPreFinish"实现Function OnPreFinish  !insertmacro MUI_INSTALLOPTIONS_WRITE "ioSpecial.ini" "Settings" "CancelEnabled" "0"FunctionEnd 
 ```
 
 # 苹果的方块光标
+
+2006-05-23 09:58:00
+
 ```
 怀念AppleII的方块光标，在VC其实也可以：
 ::CreateCaret(GetDlgItem(IDC_EDTINPUT)->GetSafeHwnd(),NULL,7,14);   ShowCaret(); 
@@ -1661,17 +1817,27 @@ Traceback (most recent call last):  File "<interactive input>", line 1, in ?Un
 ```
 
 # 最佩服中国农历
+
+2005-02-24 13:00:00
+
 ```
 正月十五雪打灯
 好几天大晴天了，忽然昨天就飘起大雪花，下了整整一夜，入冬最大的一场估计也是最后一场雪
 ```
 
 # 参加微软MDC大会
+
+2004-06-26 11:36:00
+
 ```
 昨天参加了微软首次在中国举行的MDC大会（移动开发者大会），总体感觉还是不错，尤其的是下午的专题讲座，还是学到一些东西的。不过有一个微软的专家讲POOM的时候竟然在Vs.Net的菜单里挨个找怎么把字体变大，最后也没有找到，然后把所有的代码复制到记事本中，又开始满记事本的菜单里找怎么放大字体，我坐在第一排，附近的人全都哗然，这样水平的人不知道怎么进的微软呀。唉，难怪微软被Sun超的一塌糊涂，现在dotnet出了这么久也不是Java的对手，从微软的这些‘专家’可知一二了。
 ```
 
 # MSN小P机器人
+
+2004-06-23 14:09:00
+
 ```
-xiaop2005@hotmail.com joke看笑话 学习：L 问题 回答 还能查询公司的商品信息，没什么太大意思
+xiaop2005@hotmail.com joke看笑话 学习：L 问题 回答 还能查询公司的商品信息
 ```
+
