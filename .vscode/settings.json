@@ -1,0 +1,17 @@
+{
+    "sqltools.connections": [
+        {
+            "database": "wordpress",
+            "driver": "MySQL",
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "name": "wordpress",
+            "password": "hoker_S#2002",
+            "port": 3306,
+            "previewLimit": 50,
+            "server": "47.92.192.57",
+            "username": "ffb"
+        }
+    ]
+}

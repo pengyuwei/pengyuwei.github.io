@@ -1413,12 +1413,71 @@ seclen为7，内存情况如下：
 赋值成功。 我的程序因为那个字段的值包含/0，并且保存在了string中，所以在拼SQL的时候，导致单引号拼接失败，最终导致SQL执行失败。结论：使用string的时候要格外当心/0的问题。恶意使用者可通过向数据库提交包含/0的字符串来使后台程序崩溃（斜杠零攻击）。
 ```
 
+
 # [OCI] OCI基础学习笔记：Select的方法
 
-2008-05-13 18:53:00
+2008-05-13
+```	
+晕，CSDN坏了，临时放这里
 
-```
-#include   <oci.h>       OCIEnv   *m_pOCIEnv;       OCIError   *m_pOCIError;       OCISvcCtx   *m_pOCISvcCtx;       OCIStmt   *m_Insertp;       OCIStmt   *m_pOCIStmtSelectR;       OCIBind   *m_Bndhp;    登录：     char   szUserID[STRING_LEN];       char   szPassWord[STRING_LEN];       char   szServerName[STRING_LEN];        (void) OCIEnvCreate(&m_pOCIEnv, OCI_THREADED, (dvoid *)0,                                 0, 0, 0, (size_t) 0, (dvoid **)0);      OCIHandleAlloc((dvoid   *)m_pOCIEnv,   (dvoid   **)&m_pOCIError,   OCI_HTYPE_ERROR,   (size_t)0,   (dvoid   **)0);        strcpy(szServerName,   "Ora_servername");       strcpy(szUserID,   "username");       strcpy(szPassWord,   "password");        ProcessError(m_pOCIError,           nRetCode = OCILogon(m_pOCIEnv,   m_pOCIError,   &m_pOCISvcCtx,           (unsigned   char   *)szUserID,   strlen(szUserID),           (unsigned   char   *)szPassWord   ,   strlen(szPassWord),           (unsigned   char   *)szServerName,   strlen(szServerName)           ));       if (nRetCode != OCI_SUCCESS)     {         return -1;     }  一个Select查询的初始化：     const   char   *pszSelectSql  = NULL;      pszSelectSql   =   "select OBJECT from ORIGIN WHERE HANDLE_FLAG=0 AND  rownum<5";          OCIHandleAlloc((dvoid   *)m_pOCIEnv,   (dvoid   **)&m_pOCIStmtSelectR,   OCI_HTYPE_STMT,   (size_t)0,   (dvoid   **)0);        OCIStmtPrepare(m_pOCIStmtSelectR,   m_pOCIError,   (text   *)pszSelectSql,   (ub4)strlen(pszSelectSql),                 (ub4)OCI_NTV_SYNTAX,   (ub4)OCI_DEFAULT)  ;                  OCIDefine *m_pOCIDefSelect = NULL;        ProcessError(m_pOCIError, OCIDefineByPos(m_pOCIStmtSelectR, &m_pOCIDefSelect, m_pOCIError, 1, (dvoid *) &lObject,                  (sword) sizeof(double), SQLT_FLT, (dvoid *) 0, (ub2 *)0,                  (ub2 *)0, OCI_DEFAULT));  执行查询并取得记录集：     OCIStmtExecute(m_pOCISvcCtx,   m_pOCIStmtSelectR,   m_pOCIError,   (ub4)1,   (ub4)0,                      (CONST   OCISnapshot   *)NULL,   (OCISnapshot   *)NULL,   OCI_DEFAULT);      while(errno==OCI_SUCCESS_WITH_INFO || errno==OCI_SUCCESS)     {         printf("ip=%f,%s/r/n", lObject, "");         errno = OCIStmtFetch ( m_pOCIStmtSelectR, m_pOCIError, 1, OCI_FETCH_NEXT, OCI_DEFAULT);     }  原理是首先初始化OCI环境，分配表达式句柄，然后用OCIDefineByPos绑定变量，第四个参数是从1开始的查询结果对应的字段序号，最后用OCIStmtExecute执行查询，并调用OCIStmtFetch遍历结果集，没有结果会得到OCI_NO_DATA
+#include <oci.h> 
+OCIEnv *m_pOCIEnv; 
+OCIError *m_pOCIError; 
+OCISvcCtx *m_pOCISvcCtx; 
+OCIStmt *m_Insertp; 
+OCIStmt *m_pOCIStmtSelectR; 
+OCIBind *m_Bndhp; 
+
+登录：
+char szUserID[STRING_LEN]; 
+char szPassWord[STRING_LEN]; 
+char szServerName[STRING_LEN]; 
+
+(void) OCIEnvCreate(&m_pOCIEnv, OCI_THREADED, (dvoid *)0,
+0, 0, 0, (size_t) 0, (dvoid **)0);
+
+OCIHandleAlloc((dvoid *)m_pOCIEnv, (dvoid **)&m_pOCIError, OCI_HTYPE_ERROR, (size_t)0, (dvoid **)0); 
+
+strcpy(szServerName, "Ora_153"); 
+strcpy(szUserID, "appealspam"); 
+strcpy(szPassWord, "appealspam"); 
+
+ProcessError(m_pOCIError, 
+nRetCode = OCILogon(m_pOCIEnv, m_pOCIError, &m_pOCISvcCtx, 
+(unsigned char *)szUserID, strlen(szUserID), 
+(unsigned char *)szPassWord , strlen(szPassWord), 
+(unsigned char *)szServerName, strlen(szServerName) 
+)); 
+if (nRetCode != OCI_SUCCESS)
+{
+return -1;
+}
+
+一个Select查询的初始化：
+const char *pszSelectSql = NULL;
+pszSelectSql = "select APPEAL_OBJECT from APPEAL_ORIGIN WHERE APPEAL_HANDLE_FLAG=0 AND rownum<5"; 
+
+OCIHandleAlloc((dvoid *)m_pOCIEnv, (dvoid **)&m_pOCIStmtSelectR, OCI_HTYPE_STMT, (size_t)0, (dvoid **)0); 
+OCIStmtPrepare(m_pOCIStmtSelectR, m_pOCIError, (text *)pszSelectSql, (ub4)strlen(pszSelectSql), 
+(ub4)OCI_NTV_SYNTAX, (ub4)OCI_DEFAULT) ; 
+
+OCIDefine *m_pOCIDefSelect = NULL;
+
+ProcessError(m_pOCIError, OCIDefineByPos(m_pOCIStmtSelectR, &m_pOCIDefSelect, m_pOCIError, 1, (dvoid *) &lObject,
+(sword) sizeof(double), SQLT_FLT, (dvoid *) 0, (ub2 *)0,
+(ub2 *)0, OCI_DEFAULT));
+
+执行查询并取得记录集：
+OCIStmtExecute(m_pOCISvcCtx, m_pOCIStmtSelectR, m_pOCIError, (ub4)1, (ub4)0,
+(CONST OCISnapshot *)NULL, (OCISnapshot *)NULL, OCI_DEFAULT);
+
+while(errno==OCI_SUCCESS_WITH_INFO || errno==OCI_SUCCESS)
+{
+printf("ip=%f,%s\r\n", lObject, "");
+errno = OCIStmtFetch ( m_pOCIStmtSelectR, m_pOCIError, 1, OCI_FETCH_NEXT, OCI_DEFAULT);
+}
+
+原理是首先初始化OCI环境，分配表达式句柄，然后用OCIDefineByPos绑定变量，第四个参数是从1开始的查询结果对应的字段序号，最后用OCIStmtExecute执行查询，并调用OCIStmtFetch遍历结果集，没有结果会得到OCI_NO_DATA
 ```
 
 # VC90的exe换了环境不能运行
