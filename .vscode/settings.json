@@ -13,5 +13,7 @@
             "server": "47.92.192.57",
             "username": "ffb"
         }
-    ]
+    ],
+    "editor.minimap.showSlider": "always",
+    "editor.minimap.scale": 2
 }

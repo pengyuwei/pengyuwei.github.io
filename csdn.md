@@ -819,7 +819,9 @@ sudo cp ../tilda.glade /usr/local/share/
 2011-01-29 22:10:00
 
 ```
-父母新换了一个名牌的高档的微波炉，还不会用，让我研究一下，我这个搞IT的研究了半天，发现竟然真的搞不清怎么用。于是只能去看说明书，洋洋洒洒几十页，粗略看了一遍，又几经实验，终于。。。会热剩菜了。。。由于是数字控制，这个微波炉每次接通电源后要经历一次初始化过程，我计算了一下，首次插电初始化时间超过一分钟，之后初始化大约需要半分钟，我甚至怀疑这里面是不是装了一个Vista系统，一个微波炉，启动比我512MB内存跑XP还慢。操作菜单是中文英文数字甚至代号混合的，比如P-100代表微波强度为强，而且要按一定的顺序按按钮才能进入微波热剩菜模式，所以不看说明书是不可能会用的。（在我看来，热剩菜是微波炉唯一的用途）
+父母新换了一个名牌的高档的微波炉，还不会用，让我研究一下，我这个搞IT的研究了半天，发现竟然真的搞不清怎么用。于是只能去看说明书，洋洋洒洒几十页，粗略看了一遍，又几经实验，终于。。。会热剩菜了。。。
+由于是数字控制，这个微波炉每次接通电源后要经历一次初始化过程，我计算了一下，首次插电初始化时间超过一分钟，之后初始化大约需要半分钟，我甚至怀疑这里面是不是装了一个Vista系统，一个微波炉，启动比我512MB内存跑XP还慢。
+操作菜单是中文英文数字甚至代号混合的，比如P-100代表微波强度为强，而且要按一定的顺序按按钮才能进入微波热剩菜模式，所以不看说明书是不可能会用的。（在我看来，热剩菜是微波炉唯一的用途）
 回想过去的老微波炉，我要做的所有事情就是打开炉门，放进剩菜，关上门，拧两分钟即可，多么的简洁。
 ```
 
@@ -1372,8 +1374,9 @@ for (itor=m_Funcs.begin();itor!=m_Funcs.end();)
 2008-05-21 17:01:00
 
 ```
-他们管这个叫C++的format，其实这种方法也比较诡异
-std::ostringstream strSQLS;strSQLS << "WHERE FRAMEIP = "            <<szIp            <<" and LOGINTIME<="            <<time1            <<" AND LOGOUTTIME>="            <<time1            ;
+他们管这个叫C++的format，其实这种方法也比较诡异：
+std::ostringstream strSQLS;
+strSQLS << "WHERE FRAMEIP = " << szIp << " and LOGINTIME<=" << time1 << " AND LOGOUTTIME>=" << time1;
 
 好处是不用关心数据的类型了，缺点是原始串不直观。
 ```
@@ -1384,7 +1387,10 @@ std::ostringstream strSQLS;strSQLS << "WHERE FRAMEIP = "         
 
 ```
 特定情况下，以下的写法导致最后一个单引号没加上(display为std::string对象)：写法1：
-string strSQL;strSQL = "WHERE APPEAL_DISPLAY='";strSQL.append(display);strSQL.append(" ' "); 
+string strSQL;
+strSQL = "WHERE APPEAL_DISPLAY='";
+strSQL.append(display);
+strSQL.append(" ' "); 
 
 写法2：
 string strSQL = "WHERE  APPEAL_DISPLAY='" + display + " ' ";
@@ -1393,7 +1399,10 @@ string strSQL = "WHERE  APPEAL_DISPLAY='" + display + " ' ";
 string strSQL = "WHERE  APPEAL_DISPLAY='" + display + " /' ";
 
 以下写法不出此问题：
-char szSQL[256] = {0};string strSQL;sprintf(szSQL, "WHERE  APPEAL_DISPLAY='%s'", display.c_str() );strSQL = szSQL;
+char szSQL[256] = {0};
+string strSQL;
+sprintf(szSQL, "WHERE  APPEAL_DISPLAY='%s'", display.c_str() );
+strSQL = szSQL;
 
 调试之前执行了Clean+Rebuild，VC6，操作系统是Win2003，但是另外写一个工程运行上述代码就不出错。出错的时候display的内存情况：
 02083E31  67 7A 44 53 4C 38 37 32 35 36 35 31 31 00 00  gzDSL87256511..   
@@ -1405,7 +1414,10 @@ strSQL的内存：
 经过测试：const std::string display="sgsg8176216/0/0/0/0";int a=display.size();
 
 a==11string是不会被直接赋值为一个包含/0的字符串的。但是，这里有个问题，就是这样赋值的话应该是被编译器给截断的。所以内存赋值可能string实际可以支持。GetExtenNum()是输出数据库字段的值然后返回，其间也是用string保存数据的，dtl库的内部实现我并不了解，但推测应该还是字符串被赋了包含零的值。写测试程序如下：
-string str = "123";str.append("/ 0/ 0/ 0",3);str.append("E");string::size_type srclen=str.size();
+string str = "123";
+str.append("/ 0/ 0/ 0",3);
+str.append("E");
+string::size_type srclen = str.size();
 
 seclen为7，内存情况如下：
 00E653D9  31 32 33 00 00 00 45 00 CD CD CD CD  123...E.屯屯
