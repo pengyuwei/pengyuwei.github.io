@@ -1,5 +1,6 @@
 # 博客文章
 
+- [不能使用chatGPT？这3个平替甚至比chatGPT更强](sc/2023-0420-AI-replacement.md)
 - [人工智能AI简史](sc/2023-0417-ai-history.md)
 - [最强绘图AI：一文搞定Midjourney（附送咒语）](sc/2023-0401-midjourney.md)
 - [这些AI绘画工具教你秒变艺术大师！](sc/2023-0403-ai-painting.md)
