@@ -1,5 +1,6 @@
 # 博客文章
 
+- [AI新手入门神器！42款实用工具资源推荐](sc/2023-0425-AI-tools.md)
 - [不能使用chatGPT？这3个平替甚至比chatGPT更强](sc/2023-0420-AI-replacement.md)
 - [人工智能AI简史](sc/2023-0417-ai-history.md)
 - [最强绘图AI：一文搞定Midjourney（附送咒语）](sc/2023-0401-midjourney.md)
