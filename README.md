@@ -13,12 +13,13 @@
 <!-- 瀑布流魔法，放！-->
 ->
 <img src="http://www.memcd.com/pengyuwei/images/2022_enmp_main.jpg" width="15%" />
-<img src="http://www.memcd.com/pengyuwei/images/2022_enmp_kb.jpg" width="15%" />
+<img src="http://www.memcd.com/pengyuwei/images/2022_enmp_kb.png" width="15%" />
 <img src="http://www.memcd.com/pengyuwei/images/2022_enmp_live_earth.jpg" width="15%" />
 <img src="http://www.memcd.com/pengyuwei/images/2022_enmp_sun.jpg" width="15%" />
-<img src="http://www.memcd.com/pengyuwei/images/2023_enmp_ai.jpg" width="15%" />
+<img src="http://www.memcd.com/pengyuwei/images/2023_enmp_ai.png" width="15%" />
 <img src="http://www.memcd.com/pengyuwei/images/2022_enmp_TOP10_2021.jpg" width="15%" />
 <img src="http://www.memcd.com/pengyuwei/images/2022_wbgw_main.jpg" width="15%" />
+
 <img src="http://www.memcd.com/pengyuwei/images/2022_poems_main.png" width="15%" />
 <img src="http://www.memcd.com/pengyuwei/images/2017_de.jpg" width="15%" />
 <img src="http://www.memcd.com/pengyuwei/images/2011_taobaocollector.jpg" width="15%" />
