@@ -1,5 +1,6 @@
 # 博客文章
 
+- [跑在笔记本里的大语言模型 - GPT4All](sc/2023-0510-gpt4all.md)
 - [AI新手入门神器！42款实用工具资源推荐](sc/2023-0425-AI-tools.md)
 - [不能使用chatGPT？这3个平替甚至比chatGPT更强](sc/2023-0420-AI-replacement.md)
 - [人工智能AI简史](sc/2023-0417-ai-history.md)
