@@ -18,10 +18,11 @@ OpenAI在6月13日刚刚进行了大规模降价和升级，text-embedding-ada-0
 Multiple models, each with different capabilities and price points. Prices are per 1,000 tokens. You can think of tokens as pieces of words, where 1,000 tokens is about 750 words. This paragraph is 35 tokens.
 官方的样本文字中说明了，这段测试样本的长度为35个tokens。
 
-ChatGPT使用的tokenizer是Byte-Pair Encoding(BPE)算法，有两种方法可以近似计算token值：
+ChatGPT使用的tokenizer是Byte-Pair Encoding(BPE)算法，有三种方法可以近似计算token值：
 
 1. Transformers
 2. OpenAI tiktoken
+3. 单词数 / 0.75
 
 使用Transformers方法对测试样本进行tokens计算：
 ```
