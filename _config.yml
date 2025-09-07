@@ -1,0 +1,40 @@
+title: "Peng Yuwei's Blog"
+description: "个人技术博客"
+author: "Peng Yuwei"
+url: "https://pengyuwei.github.io"
+
+# Jekyll主题设置
+theme: minima
+
+# Minima 主题特定配置
+minima:
+  skin: auto
+  
+# 网站标题配置（确保显示正确）
+header_pages:
+  - README.md
+
+# Markdown处理器
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# 插件
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-gist
+
+# 设置
+show_excerpts: true
+date_format: "%Y-%m-%d"
+
+# 排除文件（不排除README.md，让它作为首页）
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
